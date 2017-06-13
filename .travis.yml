@@ -22,7 +22,7 @@ before_install:
 
 script:
   -  .travis/precommit.sh
-  - docker run -i --rm -v "$PWD:/unittest" paddlepaddle/paddle:latest /bin/bash -c "cd unittest/tests && python -m unittest discover ." 
+  -  docker run -i --rm -v "$PWD:/unittest" paddlepaddle/paddle:latest /bin/bash -c "cd unittest/tests && find . -name 'tests' -type d -exec python -m unittest discover '{}' \;" 
 notifications:
   email:
     on_success: change
