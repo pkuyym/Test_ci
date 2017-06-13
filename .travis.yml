@@ -2,6 +2,8 @@ language: cpp
 cache: ccache
 sudo: required
 dist: trusty
+services:
+  - docker
 os:
   - linux
 env:
@@ -16,6 +18,7 @@ addons:
       - python2.7-dev
 before_install:
   -  pip install -U virtualenv pre-commit pip
+  -  docker pull paddlepaddle/paddle:0.10.0
 script:
   -  .travis/precommit.sh
 notifications:
