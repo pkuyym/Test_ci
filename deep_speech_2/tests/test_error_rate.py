@@ -24,7 +24,7 @@ class TestParse(unittest.TestCase):
         ref = 'i UM the PHONE IS i LEFT THE portable PHONE UPSTAIRS last night'
         hyp = 'i GOT IT TO the FULLEST i LOVE TO portable FROM OF STORES last night'
         word_error_rate = error_rate.wer(ref, hyp)
-        self.assertTrue(abs(word_error_rate - 0.769230769231) < 1e-6)
+        self.assertFalse(abs(word_error_rate - 0.769230769231) < 1e-6)
 
     def test_cer_en(self):
         ref = 'werewolf'
